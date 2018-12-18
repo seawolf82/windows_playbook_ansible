@@ -1,0 +1,8 @@
+- hosts: windows
+  remote_user: Administrator
+  connection: winrm
+  port: 5986
+  roles:
+    - choco
+    - common
+    - security_windows_updates

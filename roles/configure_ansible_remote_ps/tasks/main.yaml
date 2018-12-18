@@ -1,0 +1,12 @@
+---
+
+- name: Download the ConfigureRemotingForAnsible for PowerShell
+      win_get_url:
+        url: 'https://github.com/ansible/ansible/blob/devel/examples/scripts/ConfigureRemotingForAnsible.ps1'
+        dest: 'C:\Users\Administrator\Downloads\ConfigureRemotingForAnsible.ps1'
+ 
+- name: Run command that only runs if folder exists and runs from a specific folder
+     win_command: powershell.exe -
+       args:
+         chdir: C:\Users\Administrator\Downloads\ConfigureRemotingForAnsible.ps1
+

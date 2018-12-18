@@ -1,0 +1,7 @@
+---
+
+-name: Install chocolatey through PowerShell
+  win_command: powershell.exe -
+  args:
+    stdin: Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+  tags: install_choco  
