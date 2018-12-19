@@ -3,6 +3,7 @@
   connection: winrm
   port: 5986
   roles:
+    - configure_ansible_remote_ps
     - choco
     - common
     - security_windows_updates
