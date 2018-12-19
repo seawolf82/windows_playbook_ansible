@@ -1,7 +1,7 @@
 ---
 
 
-- name: Upgrade installed packages
+- name: Upgrade choco at last version
   win_chocolatey:
     name: all
     state: latest
@@ -31,6 +31,13 @@
   - putty
   tags: package
 
+- name: Install Officepro2013 package that requires 'become'
+  win_chocolatey:
+    name: officepro2013
+    become: yes
+    become_user: Administrator
+    become_method: runas
+  tags: package
 
     #- name: uninstall multiple packages
     #win_chocolatey:
@@ -55,9 +62,3 @@
     #proxy_username: user with \"escaped\" double quotes
     #proxy_password: pass with \"escaped\" double quotes
 
-    #- name: Install a package that requires 'become'
-    #win_chocolatey:
-    #name: officepro2013
-    #become: yes
-    #become_user: Administrator
-    #become_method: runas

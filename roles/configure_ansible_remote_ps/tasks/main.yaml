@@ -7,8 +7,14 @@
   tags: configure_windows
  
 - name: Run command that only runs if folder exists and runs from a specific folder
-  win_command: powershell.exe -
+  win_command: powershell.exe - 
   args:
-    chdir: C:\Users\Administrator\Downloads\ConfigureRemotingForAnsible.ps1
+    stdin: |
+      $ErrorActionPreference = "Stop"
+      $sec_protocols = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::SystemDefault
+      $sec_protocols = $sec_protocols -bor [Net.SecurityProtocolType]::Tls12
+      [Net.ServicePointManager]::SecurityProtocol = $sec_protocols
+      $url = "https://github.com/ansible/ansible/raw/devel/examples/scripts/ConfigureRemotingForAnsible.ps1"
+      Invoke-Expression ((New-Object Net.WebClient).DownloadString($url))
+      exit
   tags: configure_windows
-
