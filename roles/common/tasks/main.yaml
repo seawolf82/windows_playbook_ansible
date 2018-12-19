@@ -1,13 +1,5 @@
 ---
 
-
-- name: Upgrade choco at last version
-  win_chocolatey:
-    name: all
-    state: latest
-  tags: update_choco
-
-
 - name: Install git
   win_chocolatey:
     name: git
@@ -31,9 +23,15 @@
   - putty
   tags: package
 
+- name: Upgrade installed at last version
+  win_chocolatey:
+    name: all
+    state: latest
+  tags: update_package
+
 - name: Install Officepro2013 package that requires 'become'
   win_chocolatey:
-    name: officepro2013
+    name: OfficeProPlus2013
     become: yes
     become_user: Administrator
     become_method: runas
