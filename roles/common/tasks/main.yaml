@@ -29,12 +29,12 @@
     state: latest
   tags: update_package
 
-- name: Install Officepro2013 package that requires 'become'
+- name: Install LibreOffice package
   win_chocolatey:
-    name: OfficeProPlus2013
-    become: yes
-    become_user: Administrator
-    become_method: runas
+    name: libreoffice-fresh
+    #become: yes
+    #become_user: Administrator
+    #become_method: runas
   tags: package
 
     #- name: uninstall multiple packages
