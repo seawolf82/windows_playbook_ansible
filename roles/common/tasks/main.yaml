@@ -1,17 +1,17 @@
 ---
 
-- name: Install git
-  win_chocolatey:
-    name: git
-    state: present
-  tags: package
+#- name: Install git
+#  win_chocolatey:
+#    name: git
+#    state: present
+#  tags: package
 
 
-- name: Install notepadplusplus version latest
-  win_chocolatey:
-    name: notepadplusplus
-    state: latest
-  tags: package
+  #- name: Install notepadplusplus version latest
+  #win_chocolatey:
+  #  name: notepadplusplus
+  #  state: latest
+  #tags: package
 
 
 - name: Install multiple packages
@@ -21,6 +21,11 @@
   with_items:
   - 7zip
   - putty
+  - Firefox
+  - GoogleChrome
+  - notepadplusplus
+  - git
+  - winscp
   tags: package
 
 - name: Upgrade installed at last version
