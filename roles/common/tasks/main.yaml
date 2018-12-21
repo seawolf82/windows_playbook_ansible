@@ -26,13 +26,9 @@
   - notepadplusplus
   - git
   - winscp
+  - KB2919442
+  - KB2919355
   tags: package
-
-- name: Upgrade installed at last version
-  win_chocolatey:
-    name: all
-    state: latest
-  tags: update_package
 
 - name: Install LibreOffice package
   win_chocolatey:
@@ -41,6 +37,13 @@
     #become_user: Administrator
     #become_method: runas
   tags: package
+
+- name: Upgrade installed at last version
+  win_chocolatey:
+    name: all
+    state: latest
+  tags: update_package
+
 
     #- name: uninstall multiple packages
     #win_chocolatey:
