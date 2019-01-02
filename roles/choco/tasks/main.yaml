@@ -4,4 +4,10 @@
   win_command: powershell.exe -
   args:
     stdin: Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+  tags: install_choco 
+
+
+- name: reboot host to install chocolatey correctly
+  win_reboot:
+    reboot_timeout: 60
   tags: install_choco  

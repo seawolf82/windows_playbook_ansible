@@ -18,6 +18,7 @@
   win_chocolatey:
     name: '{{ item }}'
     state: present
+    force: yes
   with_items:
   - 7zip
   - putty
@@ -26,17 +27,17 @@
   - notepadplusplus
   - git
   - winscp
-  - KB2919442
-  - KB2919355
+  - winmerge
+  - SublimeText3
   tags: package
 
-- name: Install LibreOffice package
-  win_chocolatey:
-    name: libreoffice-fresh
+  #- name: Install LibreOffice package
+  #win_chocolatey:
+  #  name: libreoffice-fresh
     #become: yes
     #become_user: Administrator
     #become_method: runas
-  tags: package
+    #tags: package
 
 - name: Upgrade installed at last version
   win_chocolatey:
@@ -45,14 +46,22 @@
   tags: update_package
 
 
-    #- name: uninstall multiple packages
-    #win_chocolatey:
-    #name: '{{ item }}'
-    #state: absent
-    #with_items:
-    #- procexp
-    #- putty
-    #- windirstat
+- name: uninstall multiple packages
+  win_chocolatey:
+    name: '{{ item }}'
+    state: absent
+    force: yes
+  with_items:
+  - 7zip
+  - putty
+  - Firefox
+  - GoogleChrome
+  - notepadplusplus
+  - git
+  - winscp
+  - winmerge
+  - SublimeText3
+  tags: uninstall_package
 
     #- name: Install curl using proxy
     # win_chocolatey:
