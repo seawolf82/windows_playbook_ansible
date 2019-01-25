@@ -20,13 +20,13 @@
     state: present
     force: yes
   with_items:
-  - 7zip
-  - putty
+  - 7zip.install
+  - kitty 
   - Firefox
   - GoogleChrome
-  - notepadplusplus
-  - git
-  - winscp
+  - notepadplusplus.install
+  - git.install
+  - winscp.install
   - winmerge
   - SublimeText3
   tags: package
@@ -52,15 +52,15 @@
     state: absent
     force: yes
   with_items:
-  - 7zip
-  - putty
+  - 7zip.install
+  - kitty
+  - SublimeText3
   - Firefox
   - GoogleChrome
-  - notepadplusplus
-  - git
-  - winscp
+  - notepadplusplus.install
+  - git.install
+  - winscp.install
   - winmerge
-  - SublimeText3
   tags: uninstall_package
 
     #- name: Install curl using proxy
